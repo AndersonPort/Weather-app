@@ -1,4 +1,4 @@
-const apikey = "c37e926f4847b0ed1377dbe970b7bf59";
+const apikey = "c32ffe255cdfad999d67dfb511e5323e";
 
 const url = (location) => `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apikey}`;
 
@@ -8,9 +8,12 @@ async function getWeatherByLocation(location) {
 
     const respData = await resp.json();
 
-    console.log(respData);
-
+    console.log(respData, KtoC(respData.main.temp));
 
 }
 
-getWeatherByLocation("London");
+getWeatherByLocation("Sobral");
+
+function KtoC(K) {
+    return (K - 273.15).toFixed(2);
+}
