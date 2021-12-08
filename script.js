@@ -22,9 +22,9 @@ function addWeatherToPage(data) {
     weather.classList.add('weather');
 
     weather.innerHTML = `
-        <small>There are</small>
-        <h2>${temp}°C</h2>
-        <p>in ${search.value}</p>`;
+        <h2>${temp} °C <img src="https://openweathermap.org/img/w/${data.weather[0].icon}.png"/></h2>
+        <small>${data.weather[0].main}</small>
+`;
 
 
 //          --- cleaning up ---
@@ -36,7 +36,7 @@ function addWeatherToPage(data) {
 }
 
 function KtoC(K) {
-    return (K - 273.15).toFixed(2);
+    return Math.floor(K - 273.15);
 }
 
 form.addEventListener("submit", (e) => {
